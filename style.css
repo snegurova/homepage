@@ -24,7 +24,6 @@
   text-align: right;
   padding: 0.5em 0.75em;
   line-height: 1em;
-  transition: opacity 0.2s linear;
   position: absolute;
   top: 1em;
   right: 1em;
@@ -45,13 +44,13 @@
 
 /* Tags */
 
-[data-tag]>*:first-child:after {
+[data-tag] > *:first-child::after {
   font-size: 0.6em;
   line-height: 1rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   display: inline-block;
-  padding: 0em 0.75em;
+  padding: 0 0.75em;
   border-radius: 15px;
   height: 1rem;
   margin-left: 0.5em;
@@ -62,75 +61,76 @@
   transition: opacity 0.2s linear;
 }
 
-[data-tag]:hover>*:first-child:after {
-  color: #ffffff;
+[data-tag="work"] > *:first-child::after {
+  content: "work";
+}
+
+[data-tag="hackathon"] > *:first-child::after {
+  content: "hackathon";
+}
+
+[data-tag="life"] > *:first-child::after {
+  content: "life";
+}
+
+[data-tag="talk"] > *:first-child::after {
+  content: "talk";
+}
+
+[data-tag="education"] > *:first-child::after {
+  content: "education";
+}
+
+[data-tag="remote"] > *:first-child::after {
+  content: "remote";
+}
+
+[data-tag="work"]:hover > *:first-child::after {
+  background: blue;
+}
+
+[data-tag]:hover > *:first-child::after {
+  color: #fff;
   opacity: 1;
   box-shadow: none;
 }
 
-[data-tag="work"]>*:first-child:after {
-  content: "work";
-}
-
-[data-tag="hackathon"]>*:first-child:after {
-  content: "hackathon";
-}
-
-[data-tag="life"]>*:first-child:after {
-  content: "life";
-}
-
-[data-tag="talk"]>*:first-child:after {
-  content: "talk";
-}
-
-[data-tag="education"]>*:first-child:after {
-  content: "education";
-}
-
-[data-tag="remote"]>*:first-child:after {
-  content: "remote";
-}
-
-[data-tag="work"]:hover>*:first-child:after {
-  background: blue;
-}
-
-[data-tag="hackathon"]:hover>*:first-child:after {
+[data-tag="hackathon"]:hover > *:first-child::after {
   background: midnightblue;
 }
 
-[data-tag="life"]:hover>*:first-child:after {
+[data-tag="life"]:hover > *:first-child::after {
   background: deepskyblue;
 }
 
-[data-tag="talk"]:hover>*:first-child:after {
+[data-tag="talk"]:hover > *:first-child::after {
   background: fuchsia;
 }
 
-[data-tag="education"]:hover>*:first-child:after {
+[data-tag="education"]:hover > *:first-child::after {
   background: rgb(255, 133, 154);
 }
 
-[data-tag="remote"]:hover>*:first-child:after {
+[data-tag="remote"]:hover > *:first-child::after {
   background: rgb(255, 222, 73);
 }
 
 /* Highlighted list item */
 
-ul:not(.timeline)>li.highlighted, ul:not(.timeline)>li.bordered {
-  margin: 0.25em 0 0.25em -1.75em;
-  padding: 0.25em 0.5em 0.25em 1.75em;
-}
-
-ul:not(.timeline)>li.highlighted>div {
-  margin-bottom: 0.25em;
-}
-
 li.highlighted {
   padding: 0.5em;
   background: rgba(0, 0, 0, 0.04);
   border-radius: 4px;
+}
+
+ul:not(.timeline) > li.highlighted,
+ul:not(.timeline) > li.bordered {
+  margin: 0.25em 0 0.25em -1.75em;
+  padding: 0.25em 0.5em 0.25em 1.75em;
+}
+
+ul:not(.timeline) > li.highlighted > div {
+  margin-bottom: 0.25em;
 }
 
 .skills li,
@@ -146,8 +146,8 @@ li.highlighted {
   margin-right: 10px;
 }
 
-.skills ul > li:before,
-.interests ul > li:before {
+.skills ul > li::before,
+.interests ul > li::before {
   content: "";
 }
 
