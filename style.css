@@ -155,3 +155,7 @@ ul:not(.timeline) > li.highlighted > div {
   margin-right: 10px;
   font-style: normal;
 }
+
+.hello {
+  font-size: 0;
+}
